@@ -13,4 +13,4 @@ https://www.mediafire.com/file/qmejgkb45mxdiy8/Programas.rar/file
 DBC, Mapas, MMaps y VMaps para HellsingWoW se pueden encontrar https://mega.nz/file/fE03HKAZ#e4-QVpLstzJzc-bHeVRG5TdI5bxbaaEgpQQc-7yxnIs.
 # Gracias
 HellsingWoW desea agradecer a todas las personas que han trabajado en este HellsingWoW.
-:D
+:D:D
