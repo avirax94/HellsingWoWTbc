@@ -25,7 +25,7 @@ if(CCACHE_PROGRAM)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE "${CCACHE_PROGRAM}")
 endif()
 
-project(CMaNGOS_TBC)
+project(HellsingWoW_TBC)
 
 # Require C++ 14 support
 set(CMAKE_CXX_STANDARD 14)

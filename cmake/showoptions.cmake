@@ -1,5 +1,5 @@
 # output generic information about the core
-message(STATUS "CMaNGOS-Core revision : ${REVISION_ID}")
+message(STATUS "HellsingWoW-Core revision : ${REVISION_ID}")
 message(STATUS "Revision time stamp   : ${REVISION_DATE}")
 message(STATUS "Install server to     : ${CMAKE_INSTALL_PREFIX}")
 

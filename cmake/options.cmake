@@ -21,7 +21,7 @@ option(BUILD_DOCS           "Build documentation with doxygen"      OFF)
 
 message("")
 message(STATUS
-  "This script builds the MaNGOS server.
+  "This script builds the HellsingWoW server.
   Options that can be used in order to configure the process:
     CMAKE_INSTALL_PREFIX    Path where the server should be installed to
     PCH                     Use precompiled headers
