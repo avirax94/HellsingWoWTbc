@@ -198,7 +198,7 @@ struct ScriptedAI : public CreatureAI
         // Returns spells that meet the specified criteria from the creatures spell list
         SpellEntry const* SelectSpell(Unit* target, int32 school, int32 mechanic, SelectTarget selectTargets, uint32 powerCostMin, uint32 powerCostMax, float rangeMin, float rangeMax, SelectEffect selectEffects);
 
-        // Checks if you can cast the specified spell
+        // Comprueba si puedes lanzar el hechizo especificado
         bool CanCast(Unit* target, SpellEntry const* spellInfo, bool triggered = false);
 
         void SetEquipmentSlots(bool loadDefault, int32 mainHand = EQUIP_NO_CHANGE, int32 offHand = EQUIP_NO_CHANGE, int32 ranged = EQUIP_NO_CHANGE);

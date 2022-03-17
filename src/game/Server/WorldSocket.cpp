@@ -287,6 +287,7 @@ bool WorldSocket::HandleAuthSession(WorldPacket& recvPacket)
     uint32 ClientBuild;
     LocaleConstant locale;
     std::string account;
+    bool isPremium = false;
     Sha1Hash sha1;
     BigNumber v, s, g, N, K;
     WorldPacket packet, SendAddonPacked;
@@ -422,6 +423,16 @@ bool WorldSocket::HandleAuthSession(WorldPacket& recvPacket)
         sLog.outError("WorldSocket::HandleAuthSession: Sent Auth Response (Account banned).");
         return false;
     }
+    QueryResult* premresult =
+        LoginDatabase.PQuery("SELECT 1 "
+             "FROM account_premium "
+             "WHERE id = '%u' "
+             "AND active = 1",
+            id);
+    if (premresult) // if account premium
+        {
+        isPremium = true;
+        }
 
     // Check locked state for server
     AccountTypes allowedAccountType = sWorld.GetPlayerSecurityLimit();
@@ -504,7 +515,7 @@ bool WorldSocket::HandleAuthSession(WorldPacket& recvPacket)
     else
     {
         // new session
-        if (!(m_session = new WorldSession(id, this, AccountTypes(security), expansion, mutetime, locale)))
+        if (!(m_session = new WorldSession(id, this, AccountTypes(security), isPremium, expansion, mutetime, locale)))
             return false;
 
         m_session->LoadGlobalAccountData();

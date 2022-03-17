@@ -2640,6 +2640,7 @@ void Player::GiveXP(uint32 xp, Creature* victim, float groupRate)
     // XP to money conversion processed in Player::RewardQuest
     if (level >= GetMaxAttainableLevel())
         return;
+    xp *= GetSession()->IsPremium() ? sWorld.getConfig(CONFIG_FLOAT_RATE_XP_KILL_PREMIUM) : 1.0f;
 
     // handle SPELL_AURA_MOD_XP_PCT auras
     Unit::AuraList const& ModXPPctAuras = GetAurasByType(SPELL_AURA_MOD_XP_PCT);
@@ -6525,7 +6526,8 @@ void Player::CheckAreaExploreAndOutdoor()
                 {
                     XP = uint32(sObjectMgr.GetBaseXP(p->area_level) * sWorld.getConfig(CONFIG_FLOAT_RATE_XP_EXPLORE));
                 }
-
+                if (GetSession()->IsPremium())
+                    XP *= sWorld.getConfig(CONFIG_FLOAT_RATE_XP_EXPLORE_PREMIUM);
                 GiveXP(XP, nullptr);
                 SendExplorationExperience(area, XP);
             }
@@ -13372,6 +13374,8 @@ void Player::RewardQuest(Quest const* pQuest, uint32 reward, Object* questGiver,
 
     // Used for client inform but rewarded only in case not max level
     uint32 xp = uint32(pQuest->XPValue(this) * sWorld.getConfig(CONFIG_FLOAT_RATE_XP_QUEST));
+    if (GetSession()->IsPremium())
+           xp *= sWorld.getConfig(CONFIG_FLOAT_RATE_XP_QUEST_PREMIUM);
 
     if (getLevel() < GetMaxAttainableLevel())
         GiveXP(xp, nullptr);

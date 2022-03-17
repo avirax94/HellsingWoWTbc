@@ -8,7 +8,7 @@
 extern void AddSC_battleground();
 
 // custom
-
+extern void AddSC_npc_teleport();
 // examples
 extern void AddSC_example_creature();
 extern void AddSC_example_escort();
@@ -366,7 +366,7 @@ void AddScripts()
     AddSC_battleground();
 
     // custom
-
+    AddSC_npc_teleport();
     // examples
     AddSC_example_creature();
     AddSC_example_escort();
