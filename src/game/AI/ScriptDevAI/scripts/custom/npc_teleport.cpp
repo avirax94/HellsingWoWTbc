@@ -17,7 +17,7 @@ bool GossipHello_Npc_Teleport(Player* pPlayer, Creature* pCreature)
 		pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetObjectGuid());
     }
     else
-        pCreature->MonsterSay("No eres vip. puedes contactar con un administrador", pPlayer->GetObjectGuid());
+        pCreature->MonsterWhisper("No eres vip. puedes contactar con un administrador", pPlayer);
 
     return true;
 }
@@ -31,7 +31,7 @@ bool GossipSelect_Npc_Teleport(Player* pPlayer, Creature* pCreature, uint32 /*ui
     }
     if (uiAction == 2)
     {
-        pCreature->MonsterSay("Puedes encontrar ayuda en nuestra web hellsingwow.com", pPlayer->GetObjectGuid());
+        pCreature->MonsterWhisper("Puedes encontrar ayuda en nuestra web hellsingwow.com", pPlayer);
         pPlayer->CLOSE_GOSSIP_MENU();
     }
     if (uiAction == 3)
@@ -44,10 +44,23 @@ bool GossipSelect_Npc_Teleport(Player* pPlayer, Creature* pCreature, uint32 /*ui
     }
     if (uiAction == 4)
     {
-        pPlayer->ADD_GOSSIP_ITEM(0, "Prof Trainer", GOSSIP_SENDER_MAIN, 20);
-        pPlayer->ADD_GOSSIP_ITEM(0, "Prof ", GOSSIP_SENDER_MAIN, 21);
+        pPlayer->ADD_GOSSIP_ITEM(0, "ventormenta", GOSSIP_SENDER_MAIN, 5);
+        pPlayer->ADD_GOSSIP_ITEM(0, "Orgrimmar", GOSSIP_SENDER_MAIN, 6);
+		pPlayer->ADD_GOSSIP_ITEM(0, "Sharactt", GOSSIP_SENDER_MAIN, 7);
         pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetObjectGuid());
     }
+	if (uiAction == 5)
+	{
+		 pPlayer->TeleportTo(0, 1807.07f, 336.105f, 70.3975f, 0.0f);
+	}
+	if (uiAction == 6)
+	{
+		 pPlayer->TeleportTo(0, 1807.07f, 336.105f, 70.3975f, 0.0f);
+	}
+	if (uiAction == 7)
+	{
+		 pPlayer->TeleportTo(0, 1807.07f, 336.105f, 70.3975f, 0.0f);
+	}
     return true;
 }
 

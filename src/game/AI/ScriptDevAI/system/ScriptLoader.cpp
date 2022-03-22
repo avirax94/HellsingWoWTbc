@@ -9,6 +9,10 @@ extern void AddSC_battleground();
 
 // custom
 extern void AddSC_npc_teleport();
+extern void AddSC_npc_tranfi();
+extern void AddSC_custom_vengeance_helpers();
+extern void AddSC_item_custom_dualspec();
+extern void AddSC_npc_custom_dualspec();
 // examples
 extern void AddSC_example_creature();
 extern void AddSC_example_escort();
@@ -367,6 +371,10 @@ void AddScripts()
 
     // custom
     AddSC_npc_teleport();
+    AddSC_npc_tranfi();
+	AddSC_item_custom_dualspec();
+    AddSC_npc_custom_dualspec();
+    AddSC_custom_vengeance_helpers();
     // examples
     AddSC_example_creature();
     AddSC_example_escort();

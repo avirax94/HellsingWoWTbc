@@ -60,6 +60,25 @@ void WorldSession::HandleDuelAcceptedOpcode(WorldPacket& recvPacket)
 
     self->SendDuelCountdown(3000);
     opponent->SendDuelCountdown(3000);
+    self->RemoveAllCooldowns();
+    //Obtenemos la salud m�xima del retador
+    self->SetHealth(self->GetMaxHealth());
+    //Obtenemos el man� m�ximo del retador
+    self->SetPower(POWER_MANA, self->GetMaxPower(POWER_MANA));
+    self->RemoveAurasDueToSpell(57724);
+    self->RemoveAurasDueToSpell(25771);
+    self->RemoveAurasDueToSpell(57723);
+    self->RemoveAurasDueToSpell(1490);
+    //Borramos el cd del pj retado
+    opponent->RemoveAllCooldowns();
+    //Obtenemos la vida m�xima del pj retado y la poner full
+    opponent->SetHealth(opponent->GetMaxHealth());
+    //Obtenemos el mana del pj retado y lo ponemos completo
+    opponent->SetPower(POWER_MANA, opponent->GetMaxPower(POWER_MANA));
+    opponent->RemoveAurasDueToSpell(57724);
+    opponent->RemoveAurasDueToSpell(25771);
+    opponent->RemoveAurasDueToSpell(57723);
+    opponent->RemoveAurasDueToSpell(1490);
 }
 
 void WorldSession::HandleDuelCancelledOpcode(WorldPacket& recvPacket)
