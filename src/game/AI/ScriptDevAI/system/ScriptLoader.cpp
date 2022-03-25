@@ -13,6 +13,7 @@ extern void AddSC_npc_tranfi();
 extern void AddSC_custom_vengeance_helpers();
 extern void AddSC_item_custom_dualspec();
 extern void AddSC_npc_custom_dualspec();
+extern void AddSC_summon();
 // examples
 extern void AddSC_example_creature();
 extern void AddSC_example_escort();
@@ -375,6 +376,7 @@ void AddScripts()
 	AddSC_item_custom_dualspec();
     AddSC_npc_custom_dualspec();
     AddSC_custom_vengeance_helpers();
+    AddSC_summon();
     // examples
     AddSC_example_creature();
     AddSC_example_escort();

@@ -12,8 +12,9 @@ bool GossipHello_Npc_Teleport(Player* pPlayer, Creature* pCreature)
     {
 		pPlayer->ADD_GOSSIP_ITEM(0, "Morph", GOSSIP_SENDER_MAIN, 1);
 		pPlayer->ADD_GOSSIP_ITEM(0, "Necesito ayuda", GOSSIP_SENDER_MAIN, 2);
-		pPlayer->ADD_GOSSIP_ITEM(0, "equitaciones", GOSSIP_SENDER_MAIN, 3);
+		pPlayer->ADD_GOSSIP_ITEM(0, "Equitaciones", GOSSIP_SENDER_MAIN, 3);
 		pPlayer->ADD_GOSSIP_ITEM(0, "teleports", GOSSIP_SENDER_MAIN, 4);
+        pPlayer->ADD_GOSSIP_ITEM(0, "Quitar Morph", GOSSIP_SENDER_MAIN, 20);
 		pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetObjectGuid());
     }
     else
@@ -46,7 +47,7 @@ bool GossipSelect_Npc_Teleport(Player* pPlayer, Creature* pCreature, uint32 /*ui
     {
         pPlayer->ADD_GOSSIP_ITEM(0, "ventormenta", GOSSIP_SENDER_MAIN, 5);
         pPlayer->ADD_GOSSIP_ITEM(0, "Orgrimmar", GOSSIP_SENDER_MAIN, 6);
-		pPlayer->ADD_GOSSIP_ITEM(0, "Sharactt", GOSSIP_SENDER_MAIN, 7);
+		pPlayer->ADD_GOSSIP_ITEM(0, "Sharatt", GOSSIP_SENDER_MAIN, 7);
         pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetObjectGuid());
     }
 	if (uiAction == 5)
@@ -61,6 +62,11 @@ bool GossipSelect_Npc_Teleport(Player* pPlayer, Creature* pCreature, uint32 /*ui
 	{
 		 pPlayer->TeleportTo(0, 1807.07f, 336.105f, 70.3975f, 0.0f);
 	}
+    if (uiAction == 20)
+    {
+        pPlayer->RestoreDisplayId();
+        pPlayer->CLOSE_GOSSIP_MENU();
+    }
     return true;
 }
 

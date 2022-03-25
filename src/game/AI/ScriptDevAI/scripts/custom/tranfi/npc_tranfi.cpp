@@ -8,20 +8,19 @@ struct npc_tranfi: public ScriptedAI
 
 bool GossipHello_Npc_Tranfi(Player* pPlayer, Creature* pCreature)
 {
-    if (pPlayer->GetSession()->IsPremium() || pPlayer->IsGameMaster())
-    {
-		pPlayer->ADD_GOSSIP_ITEM(0, "Morph", GOSSIP_SENDER_MAIN, 1);
+		pPlayer->ADD_GOSSIP_ITEM(0, "tranfigurar", GOSSIP_SENDER_MAIN, 1);
 		pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetObjectGuid());
-    }
-    else
-        pCreature->MonsterSay("No eres vip. puedes contactar con un administrador", pPlayer->GetObjectGuid());
 
     return true;
 }
 
 bool GossipSelect_Npc_Tranfi(Player* pPlayer, Creature* pCreature, uint32 /*uiSender*/, uint32 uiAction)
 {
-
+	if (uiAction == 1)
+	{
+		pPlayer->UpdateModelData();
+		pPlayer->CLOSE_GOSSIP_MENU();
+	}
     return true;
 }
 
